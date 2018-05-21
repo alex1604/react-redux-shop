@@ -5,23 +5,7 @@ handleClick = event => {
 	this.props.dispatch({ type: 'INCREASE_BY_ONE' });
 }
 */
-let actionUserFetchData = () => {
-	return {
-		type: 'USER_FETCH_DATA'
-	};
-}
-let actionFetchFailed = msg => {
-	return {
-		type: 'FETCH_FAILED',
-		message: msg
-	}
-}
-let actionFetchGotData = data => {
-	return {
-		type: 'FETCH_GOT_DATA',
-		data: data
-	};
-}
+
 
 let actionIncreaseByOne = () => {
 	return {
@@ -34,14 +18,7 @@ let actionUpdate = (amount) => {
 		amount: amount
 	}
 }
-let actionAddAnimal = name => {
-	return {
-		type: 'ADD_ANIMAL',
-		name: name
-	}
-}
 
-export { actionIncreaseByOne, actionUpdate,
-	actionAddAnimal, actionFetchFailed, actionFetchGotData, actionUserFetchData };
+export { actionIncreaseByOne, actionUpdate };
 
 //

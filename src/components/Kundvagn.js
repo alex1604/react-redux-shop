@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+/*import React, {Component} from 'react';
 import {actionIncreaseByOne, actionUpdate} from '../actions/actions.js';
 //import Actions from '../actions/actions.js';
 //Actions.actionUpdate
@@ -8,7 +8,7 @@ class Counter extends Component {
 	render() {
 		return (
 			<div>
-				Are you sure you need {this.props.value} tables?<i className='fas fa-shopping-basket'/>  <br/>
+				Are you sure you need {this.props.value} tables?  <br/>
 				<button onClick={this.handleClickIncrease}>Increase</button>
 				<button onClick={event => this.props.dispatch(actionUpdate(-1))}>Decrease</button>
 				<button onClick={event => this.props.dispatch(actionUpdate(100))}>Explode</button>
@@ -24,11 +24,9 @@ class Counter extends Component {
 }
 let mapStateToProps = state => {
 	return {
-		value: state.value
+		value: state.value,
+		numberOfClicks: state.numberOfClicks
 	};
 }
 
-export default connect(mapStateToProps)(Counter);
-
-
-//
+export default connect(mapStateToProps)(Counter);*/
