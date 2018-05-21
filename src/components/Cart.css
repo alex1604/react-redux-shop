@@ -1,0 +1,16 @@
+.cart{
+    height: auto;
+}
+
+.pan {
+    position: relative;
+    display: inline-block;
+    top: -1em;
+    right: 0.6em;
+    height: 1.1em;
+    width: 1.4em;
+    border-radius: 50px;
+    background-color: rgb(243, 61, 61);
+    color: white;
+    text-align:center;
+}

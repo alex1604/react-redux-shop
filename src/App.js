@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Counter from './components/Counter.js';
+import Cart from './components/Cart.js';
 import './App.css';
-import fontawesome from '@fortawesome/fontawesome'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import 'font-awesome/css/font-awesome.min.css';
 
 class App extends Component {
   render() {
@@ -10,7 +9,7 @@ class App extends Component {
       <div>
 	  	Buy Mysterious Tables:
       
-		<Counter />
+		<Cart />
       </div>
     );
   }
