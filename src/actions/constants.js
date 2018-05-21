@@ -1,0 +1,3 @@
+const NO_DATA = 0, LOADING = 1, LOADED = 2;
+
+export {NO_DATA, LOADING, LOADED};
