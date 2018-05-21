@@ -8,7 +8,7 @@ class Counter extends Component {
 	render() {
 		return (
 			<div>
-				Value is: {this.props.value} and you have clicked {this.props.numberOfClicks} times. <br/>
+				Are you sure you need {this.props.value} tables?  <br/>
 				<button onClick={this.handleClickIncrease}>Increase</button>
 				<button onClick={event => this.props.dispatch(actionUpdate(-1))}>Decrease</button>
 				<button onClick={event => this.props.dispatch(actionUpdate(100))}>Explode</button>

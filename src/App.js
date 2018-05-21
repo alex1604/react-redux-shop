@@ -6,7 +6,8 @@ class App extends Component {
   render() {
     return (
       <div>
-	  	Hello Redux!
+	  	Buy Mysterious Tables:
+      
 		<Counter />
       </div>
     );
