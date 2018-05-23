@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
 // import produktObj from './products.json';
 import {connect} from 'react-redux';
+import {actionAddToEmptyShoppingList, actionAddToExistingShoppingList} from '../actions/actions.js'
 
 class ProductsList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      
+      }
+      this.handleBuy = this.handleBuy.bind(this);
+    }
   render(){
     console.log(this.props.produkter);
     let list = this.props.produkter.map(
@@ -11,22 +19,52 @@ class ProductsList extends Component {
           <h3>{x.namn}</h3>
           <p>{x.pris} SEK, {x.antal} styck</p>
           <img src={require("../images/bord3.jpg")} alt="amazing table" />
-          <button>KÖP</button>
+          <button name={index} onClick={this.handleBuy}>KÖP</button>
         </div>
       )
     );
-
     return(
       <ul className="productsList">
         {list}
       </ul>
     )
   }
+  handleBuy = event => {
+    // this.setState eller this.props.x()
+    let x = event.target.name;
+    let alreadyAdded = false;
+      for (let el in this.props.kundvagn.previous){
+        console.log(el);
+        console.log(this.props.kundvagn.previous)
+        console.log(this.props.kundvagn.previous[el].namn);
+        if(el.namn === this.props.produkter[x].namn){
+          alreadyAdded = true;
+        }
+      }
+      if(!alreadyAdded){
+        alert('product doesn`t exist');
+        let action = actionAddToEmptyShoppingList({
+          namn: this.props.produkter[x].namn,
+          pris: this.props.produkter[x].pris,
+          antal: 1,
+        },);
+      console.log('action=', action);
+      this.props.dispatch(action);
+      } else if (alreadyAdded){
+        alert('produc exists');
+        let action = actionAddToExistingShoppingList(
+          this.props.produkter[x].antal + 1
+        );
+      console.log('action=', action);
+      this.props.dispatch(action);
+      }
+	}
 }
 
 let mapStateToProps = state => {
 	return {
-    produkter: state.produkter.present
+    produkter: state.produkter.present,
+    kundvagn: state.kundvagn
 	}
 };
 export default connect(mapStateToProps)(ProductsList);

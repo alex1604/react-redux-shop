@@ -1,32 +1,30 @@
-/*import React, {Component} from 'react';
-import {actionIncreaseByOne, actionUpdate} from '../actions/actions.js';
-//import Actions from '../actions/actions.js';
-//Actions.actionUpdate
+import React, {Component} from 'react';
+// import produktObj from './products.json';
 import {connect} from 'react-redux';
 
-class Counter extends Component {
-	render() {
-		return (
-			<div>
-				Are you sure you need {this.props.value} tables?  <br/>
-				<button onClick={this.handleClickIncrease}>Increase</button>
-				<button onClick={event => this.props.dispatch(actionUpdate(-1))}>Decrease</button>
-				<button onClick={event => this.props.dispatch(actionUpdate(100))}>Explode</button>
-			</div>
-		)
+class Kundvagn extends Component {
+  render(){
+    console.log(this.props.produkter);
+    /*let list = this.props.produkter.map(
+			(x, index) => (
+        <div className="productsItem" key={index}>
+          <h3>{x.namn}</h3>
+          <p>{x.pris} SEK, {x.antal} styck</p>
+          <img src={require("../images/bord3.jpg")} alt="amazing table" />
+          <button>KÖP</button>
+        </div>
+      )
+    );*/
+
+    return(
+      null
+    )
 	}
-	handleClickIncrease = event => {
-		// this.setState eller this.props.x()
-		let action = actionIncreaseByOne();
-		console.log('Increase clicked, dispatching action:', action);
-		this.props.dispatch(action);
-	}
-}
-let mapStateToProps = state => {
-	return {
-		value: state.value,
-		numberOfClicks: state.numberOfClicks
-	};
 }
 
-export default connect(mapStateToProps)(Counter);*/
+let mapStateToProps = state => {
+	return {
+    produkter: state.produkter.present
+	}
+};
+export default connect(mapStateToProps)(Kundvagn);

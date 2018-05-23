@@ -10,6 +10,10 @@ import rootReducer from './reducers/reducer.js'
 
 const initialState ={
 	value: 0,
+	kundvagn: {
+    previous:[],
+    lastAdded:[]
+  },
     produkter:{
       past:[],
       present: [

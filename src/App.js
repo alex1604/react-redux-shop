@@ -5,6 +5,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import logo from './logo.svg';
 import ProductsList from './components/ProductsList.js';
 import Form from './components/Form.js';
+import Kundvagn from './components/Kundvagn.js'
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
         </header>
         <ProductsList />
         <Form/>
+        <Kundvagn/>
       </div>
     );
   }

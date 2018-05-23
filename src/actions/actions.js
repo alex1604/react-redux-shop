@@ -25,6 +25,20 @@ let actionDecreaseByOne = () => {
 	}
 }
 
-export { actionIncreaseByOne, actionDecreaseByOne, actionAddTable };
+let actionAddToEmptyShoppingList = (o) => {
+	return {
+		type: 'ADD_TO_EMPTY_SHOPPING_LIST',
+		item: o,
+	};
+}
+
+let actionAddToExistingShoppingList = (o) => {
+	return {
+		type: 'ADD_TO_EXISTING_SHOPPING_LIST',
+		item: o,
+	};
+}
+
+export { actionAddToEmptyShoppingList, actionAddToExistingShoppingList, actionIncreaseByOne, actionDecreaseByOne, actionAddTable };
 
 //
