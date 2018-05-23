@@ -19,13 +19,12 @@ let actionIncreaseByOne = () => {
 		type: 'INCREASE_BY_ONE'
 	}
 }
-let actionUpdate = (amount) => {
+let actionDecreaseByOne = () => {
 	return {
-		type: 'UPDATE',
-		amount: amount
+		type: 'DECREASE_BY_ONE',
 	}
 }
 
-export { actionIncreaseByOne, actionUpdate, actionAddTable };
+export { actionIncreaseByOne, actionDecreaseByOne, actionAddTable };
 
 //
