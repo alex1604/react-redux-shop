@@ -5,12 +5,14 @@
 .pan {
     position: relative;
     display: inline-block;
-    top: -1em;
+    top: -1.2em;
     right: 0.6em;
-    height: 1.1em;
+    height: 1.2em;
     width: 1.4em;
     border-radius: 50px;
     background-color: rgb(243, 61, 61);
     color: white;
     text-align:center;
+    font-size:1.7em;
+    padding: 10px;
 }

@@ -5,7 +5,14 @@ handleClick = event => {
 	this.props.dispatch({ type: 'INCREASE_BY_ONE' });
 }
 */
+import {ADD_TABLE} from '../actions/constants.js';
 
+let actionAddTable = (o) => {
+	return {
+		type: ADD_TABLE,
+		furniture: o,
+	};
+}
 
 let actionIncreaseByOne = () => {
 	return {
@@ -19,6 +26,6 @@ let actionUpdate = (amount) => {
 	}
 }
 
-export { actionIncreaseByOne, actionUpdate };
+export { actionIncreaseByOne, actionUpdate, actionAddTable };
 
 //

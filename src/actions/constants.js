@@ -1,3 +1,3 @@
-const NO_DATA = 0, LOADING = 1, LOADED = 2;
+const ADD_TABLE = 'ADD_TABLE';
 
-export {NO_DATA, LOADING, LOADED};
+export {ADD_TABLE}

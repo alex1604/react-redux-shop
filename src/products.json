@@ -1,0 +1,6 @@
+ [
+  { "namn" : "Bord Plus","id": 1, "pris": 2000,"styck": 4, "img" : "./images/bord2.jpg"},
+  { "namn" : "Bord Två","id": 2,"pris": 3000,"styck": 5, "img" : "./images/bord3.jpg"},
+  { "namn" : "Bord Family","id": 3,"pris": 5000,"styck": 2, "img" : "./images/bord4.jpg"},
+  { "namn" : "Bord Work","id": 4,"pris": 6000,"styck": 2, "img" : "./images/bord1.jpg"}
+]

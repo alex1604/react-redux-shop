@@ -9,10 +9,9 @@ class Cart extends Component {
 	render() {
 		return (
 			<div>
-				Are you sure you need {this.props.value} tables?<div className="cart"><i className="fa fa-shopping-cart fa-2x"></i><span className="pan">{this.props.value}</span></div>  <br/>
+				<div className="cart"><i className="fa fa-shopping-cart fa-4x"></i><span className="pan">{this.props.value}</span></div>  <br/><br/>
 				<button onClick={this.handleClickIncrease}>Increase</button>
 				<button onClick={event => this.props.dispatch(actionUpdate(-1))}>Decrease</button>
-				<button onClick={event => this.props.dispatch(actionUpdate(100))}>Explode</button>
 			</div>
 		)
 	}

@@ -1,21 +1,20 @@
 import {combineReducers} from 'redux';
-import {NO_DATA, LOADING, LOADED} from '../actions/constants.js';
+import {ADD_TABLE} from '../actions/constants.js'
 
-let counterReducer = (state=14, action) => {
+let tableReducer = (state={past:[], present:[], future:[]}, action) => {
 	switch( action.type ) {
-		case 'INCREASE_BY_ONE':
-			return state + LOADING;
-
-		case 'UPDATE':
-			return state + action.amount;
-
+		case ADD_TABLE:
+		return {
+				past: [...state.past,state.present],
+				present: [...state.present, action.furniture],
+				future: []
+			};
 		default:
 			return state;
 	}
-}
+};
 
 let rootReducer = combineReducers({
-	value: counterReducer
+	produkter: tableReducer,
 });
-
 export default rootReducer;

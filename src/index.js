@@ -6,11 +6,31 @@ import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import rootReducer from './reducers/reducer.js'
- 
+// import produktObj from './products.json';
 
-
-const initialState = {
+const initialState ={
 	value: 0,
+    produkter:{
+      past:[],
+      present: [
+        { namn : "Bord Plus",
+          pris: 2000,
+          antal: 4,},
+        {
+          namn : "Bord Två",
+          pris: 3000,
+          antal: 5},
+        {
+          namn : "Bord Family",
+          pris: 5000,
+          antal:2},
+        {
+          namn : "Bord Work",
+          pris: 6000,
+          antal: 2},
+      ],
+      future: [],
+    }
 };
 
 
