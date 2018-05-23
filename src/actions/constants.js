@@ -1,3 +1,4 @@
 const ADD_TABLE = 'ADD_TABLE';
+const NO_DATA = 0, LOADING = 1, LOADED = 2;
 
-export {ADD_TABLE}
+export {ADD_TABLE, NO_DATA, LOADING, LOADED}
