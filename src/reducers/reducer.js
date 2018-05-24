@@ -32,14 +32,19 @@ let shoppingCart = (state={previous:[], lastAdded: []}, action) => {
 	switch( action.type ) {
 		case ADD_TO_EMPTY_SHOPPING_LIST:
 			return {
-				previous: [...state.previous, action.item],
+				previous : [...state.previous, action.item],
 				lastAdded: [action.item]
 				};
 
 		case ADD_TO_EXISTING_SHOPPING_LIST:
-			return update(state.previous[action.item].antal, { 
-				$set : state.previous[action.item].antal + LOADING
-			});
+			let newState = [...state.previous];
+
+			newState[action.item.index].antal = action.item.antal;
+			
+			return { 
+				previous : newState,
+				lastAdded: [action.item.lastAdded]
+			};
 		default:
 			return state;
 	}

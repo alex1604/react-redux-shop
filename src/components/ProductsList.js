@@ -33,12 +33,12 @@ class ProductsList extends Component {
     // this.setState eller this.props.x()
     let x = event.target.name;
     let alreadyAdded = false;
+    let index;
       for (let el in this.props.kundvagn.previous){
-        console.log(el);
-        console.log(this.props.kundvagn.previous)
-        console.log(this.props.kundvagn.previous[el].namn);
         if(this.props.kundvagn.previous[el].namn === this.props.produkter[x].namn){
           alreadyAdded = true;
+          index = el;
+          console.log(index)
         }
       }
       if(!alreadyAdded){
@@ -51,10 +51,15 @@ class ProductsList extends Component {
       console.log('action=', action);
       this.props.dispatch(action);
       } else if (alreadyAdded){
-        alert('produc exists');
-        let antal = this.props.produkter[x].antal + 1;
+        alert('product exists');
+
+        let antal = this.props.kundvagn.previous[index].antal + 1;
         let action = actionAddToExistingShoppingList({
-          x
+          index: index, antal: antal, lastAdded: {
+            namn: this.props.produkter[x].namn,
+            pris: this.props.produkter[x].pris,
+            antal: 1,
+          }
         },);
       console.log('action=', action);
       this.props.dispatch(action);
