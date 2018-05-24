@@ -34,11 +34,12 @@ class Form extends Component{
     console.log(this.state);
     let action = actionAddTable({
         namn: this.state.inputNamn,
-        pris: this.state.inputPris,
-        antal: this.state.inputAntal,
+        pris: Number(this.state.inputPris),
+        antal: Number(this.state.inputAntal),
       },);
     console.log('action=', action);
     this.props.dispatch(action);
+    this.setState({inputNamn: '', inputPris:'', inputAntal:''});
   }
 }
 let mapStateToProps = state => {

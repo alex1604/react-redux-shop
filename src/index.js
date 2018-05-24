@@ -9,7 +9,7 @@ import rootReducer from './reducers/reducer.js'
 // import produktObj from './products.json';
 
 const initialState ={
-	value: 0,
+		value: 0,
     produkter:{
       past:[],
       present: [
@@ -30,7 +30,8 @@ const initialState ={
           antal: 2},
       ],
       future: [],
-    }
+    },//produkter som finns
+		history:[],
 };
 
 

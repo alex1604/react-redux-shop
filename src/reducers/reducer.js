@@ -26,9 +26,15 @@ let tableReducer = (state={past:[], present:[], future:[]}, action) => {
 			return state;
 	}
 };
-
+let historyReducer = (state=[], action) =>{
+			return(
+				[...state, action.type]
+			);
+}
 let rootReducer = combineReducers({
 	produkter: tableReducer,
-	value: counterReducer
+	value: counterReducer,
+	history: historyReducer,
 });
+
 export default rootReducer;

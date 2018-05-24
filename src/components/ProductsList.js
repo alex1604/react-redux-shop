@@ -9,7 +9,7 @@ class ProductsList extends Component {
 			(x, index) => (
         <div className="productsItem" key={index}>
           <h3>{x.namn}</h3>
-          <p>{x.pris} SEK, {x.antal} styck</p>
+          <p>{x.pris} SEK, {x.antal} st.</p>
           <img src={require("../images/bord3.jpg")} alt="amazing table" />
           <button>KÖP</button>
         </div>
