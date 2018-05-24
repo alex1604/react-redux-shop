@@ -34,7 +34,8 @@ const initialState ={
           antal: 2},
       ],
       future: [],
-    }
+    },//produkter som finns
+		history:[],
 };
 
 

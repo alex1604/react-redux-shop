@@ -97,6 +97,16 @@ header{
   width: 100%;
   justify-content: space-between;
 }
+.historyList{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  width: 50%;
+  margin: 20px;
+  padding: 5px;
+  height: auto;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -129,5 +139,6 @@ header{
     width:100%;
 
   }
+
 
 }

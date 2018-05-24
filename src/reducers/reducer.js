@@ -50,9 +50,17 @@ let shoppingCart = (state={previous:[], lastAdded: []}, action) => {
 	}
 };
 
+let historyReducer = (state=[], action) =>{
+	return(
+		[...state, action.type]
+	);
+}
 let rootReducer = combineReducers({
-	produkter: tableReducer,
-	value: counterReducer,
-	kundvagn: shoppingCart
+produkter: tableReducer,
+value: counterReducer,
+history: historyReducer,
+kundvagn: shoppingCart
+
 });
+
 export default rootReducer;
