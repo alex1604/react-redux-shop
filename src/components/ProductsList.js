@@ -37,7 +37,7 @@ class ProductsList extends Component {
         console.log(el);
         console.log(this.props.kundvagn.previous)
         console.log(this.props.kundvagn.previous[el].namn);
-        if(el.namn === this.props.produkter[x].namn){
+        if(this.props.kundvagn.previous[el].namn === this.props.produkter[x].namn){
           alreadyAdded = true;
         }
       }
@@ -52,9 +52,10 @@ class ProductsList extends Component {
       this.props.dispatch(action);
       } else if (alreadyAdded){
         alert('produc exists');
-        let action = actionAddToExistingShoppingList(
-          this.props.produkter[x].antal + 1
-        );
+        let antal = this.props.produkter[x].antal + 1;
+        let action = actionAddToExistingShoppingList({
+          x
+        },);
       console.log('action=', action);
       this.props.dispatch(action);
       }

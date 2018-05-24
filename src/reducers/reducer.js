@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux';
 import {ADD_TABLE, ADD_TO_EMPTY_SHOPPING_LIST, ADD_TO_EXISTING_SHOPPING_LIST, NO_DATA, LOADING, LOADED} from '../actions/constants.js';
+import update from 'immutability-helper';
 
 let counterReducer = (state={}, action) => {
 	switch( action.type ) {
@@ -31,16 +32,14 @@ let shoppingCart = (state={previous:[], lastAdded: []}, action) => {
 	switch( action.type ) {
 		case ADD_TO_EMPTY_SHOPPING_LIST:
 			return {
-				previous: [...state.previous, state.lastAdded],
+				previous: [...state.previous, action.item],
 				lastAdded: [action.item]
 				};
 
 		case ADD_TO_EXISTING_SHOPPING_LIST:
-			return {
-				previous: [...state.previous, state.lastAdded],
-				lastAdded: [action.item]
-				};
-
+			return update(state.previous[action.item].antal, { 
+				$set : state.previous[action.item].antal + LOADING
+			});
 		default:
 			return state;
 	}
