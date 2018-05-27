@@ -6,8 +6,8 @@ import {actionAddToEmptyShoppingList, actionAddToExistingShoppingList} from '../
 class ProductsList extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      
+    this.state = {
+
       }
       this.handleBuy = this.handleBuy.bind(this);
     }
@@ -16,8 +16,9 @@ class ProductsList extends Component {
     let list = this.props.produkter.map(
 			(x, index) => (
         <div className="productsItem" key={index}>
-          <h3>{x.namn}</h3>
-          <p>{x.pris} SEK, {x.antal} st.</p>
+          <h2>{x.namn}</h2>
+          <p>{x.pris} SEK/st.</p>
+          <p><em>{x.antal} st. i lager</em></p>
           <img src={require("../images/bord3.jpg")} alt="amazing table" />
           <button name={index} onClick={this.handleBuy}>KÖP</button>
         </div>

@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import {ADD_TABLE, ADD_TO_EMPTY_SHOPPING_LIST, ADD_TO_EXISTING_SHOPPING_LIST, NO_DATA, LOADING, LOADED} from '../actions/constants.js';
-import update from 'immutability-helper';
+import {ADD_TABLE, ADD_TO_EMPTY_SHOPPING_LIST, ADD_TO_EXISTING_SHOPPING_LIST, NO_DATA, LOADING, LOADED, SELECT_TAB} from '../actions/constants.js';
+// import update from 'immutability-helper';
 
 let counterReducer = (state={}, action) => {
 	switch( action.type ) {
@@ -40,8 +40,8 @@ let shoppingCart = (state={previous:[], lastAdded: []}, action) => {
 			let newState = [...state.previous];
 
 			newState[action.item.index].antal = action.item.antal;
-			
-			return { 
+
+			return {
 				previous : newState,
 				lastAdded: [action.item.lastAdded]
 			};
@@ -55,12 +55,22 @@ let historyReducer = (state=[], action) =>{
 		[...state, action.type]
 	);
 }
+
+let tabReducer = (state=[], action) =>{
+	switch( action.type ) {
+		case SELECT_TAB:
+			return [action.tab];
+		default:
+			return state;
+	}
+
+}
 let rootReducer = combineReducers({
 produkter: tableReducer,
 value: counterReducer,
 history: historyReducer,
-kundvagn: shoppingCart
-
+kundvagn: shoppingCart,
+tab: tabReducer,
 });
 
 export default rootReducer;

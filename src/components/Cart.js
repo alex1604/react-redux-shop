@@ -9,12 +9,12 @@ class Cart extends Component {
 	render() {
 		return (
 			<div>
-				<div className="cart"><i className="fa fa-shopping-cart fa-4x"></i><span className="pan">{this.props.value}</span></div>  <br/><br/>
-				<button onClick={this.handleClickIncrease}>Increase</button>
-				<button onClick={this.handleDecrease}>Decrease</button>
+				<div className="cart"><i className="fa fa-shopping-cart fa-3x"></i><span className="pan">{this.props.value}</span></div>
 			</div>
 		)
 	}
+	// <button onClick={this.handleClickIncrease}>Increase</button>
+	// <button onClick={this.handleDecrease}>Decrease</button>
 	handleClickIncrease = event => {
 		// this.setState eller this.props.x()
 		let action = actionIncreaseByOne();

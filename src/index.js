@@ -21,7 +21,7 @@ const initialState ={
           pris: 2000,
           antal: 4,},
         {
-          namn : "Bord Två",
+          namn : "Bord Extra",
           pris: 3000,
           antal: 5},
         {
@@ -36,6 +36,7 @@ const initialState ={
       future: [],
     },//produkter som finns
 		history:[],
+		tab: ['products'],
 };
 
 

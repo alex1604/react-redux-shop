@@ -5,7 +5,7 @@ handleClick = event => {
 	this.props.dispatch({ type: 'INCREASE_BY_ONE' });
 }
 */
-import {ADD_TABLE} from '../actions/constants.js';
+import {ADD_TABLE, SELECT_TAB} from '../actions/constants.js';
 
 let actionAddTable = (o) => {
 	return {
@@ -39,6 +39,19 @@ let actionAddToExistingShoppingList = (o) => {
 	};
 }
 
-export { actionAddToEmptyShoppingList, actionAddToExistingShoppingList, actionIncreaseByOne, actionDecreaseByOne, actionAddTable };
+let actionSelectTab = (tab) => {
+	return{
+		type: SELECT_TAB,
+		tab,
+
+	};
+}
+export {
+	actionAddToEmptyShoppingList,
+	actionAddToExistingShoppingList,
+	actionIncreaseByOne,
+	actionDecreaseByOne,
+	actionAddTable,
+ 	actionSelectTab};
 
 //
