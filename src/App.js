@@ -20,7 +20,6 @@ class App extends Component {
         </header>
         <ProductsList />
         <Form/>
-        <Kundvagn/>
         <Historik historyList={this.props.history}/>
       </div>
     );

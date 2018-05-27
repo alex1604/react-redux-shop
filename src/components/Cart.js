@@ -4,14 +4,31 @@ import {actionIncreaseByOne, actionDecreaseByOne, actionUpdate} from '../actions
 //Actions.actionUpdate
 import {connect} from 'react-redux';
 import './Cart.css'
+import Kundvagn from './Kundvagn.js'
 
 class Cart extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { 
+		  visaKundvagn: false
+		}
+		this.visaKundvagn = this.visaKundvagn.bind(this);
+	}
+	visaKundvagn(){
+		this.setState({visaKundvagn: !this.state.visaKundvagn});
+	}
 	render() {
+		const visaKundvagn = this.state.visaKundvagn ? (
+			<Kundvagn/>
+		) : (
+			null
+		);
 		return (
 			<div>
-				<div className="cart"><i className="fa fa-shopping-cart fa-4x"></i><span className="pan">{this.props.value}</span></div>  <br/><br/>
+				<div className="cart" onClick={this.visaKundvagn}><i className="fa fa-shopping-cart fa-4x"></i><span className="pan">{this.props.value}</span></div>  <br/><br/>
 				<button onClick={this.handleClickIncrease}>Increase</button>
 				<button onClick={this.handleDecrease}>Decrease</button>
+				{visaKundvagn}
 			</div>
 		)
 	}
@@ -29,7 +46,8 @@ class Cart extends Component {
 }
 let mapStateToProps = state => {
 	return {
-		value: state.value
+		value: state.value,
+		kundvagn: state.kundvagn.previous
 	};
 }
 

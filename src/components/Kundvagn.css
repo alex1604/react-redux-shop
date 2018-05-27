@@ -1,0 +1,43 @@
+#kundvagn{
+    height:90vh;
+    overflow-y:scroll;
+    width: 33%;
+    border-left: 2px solid rgb(90, 89, 89);
+    border-bottom: 2px solid rgb(90, 89, 89);
+    border-bottom-left-radius: 15px;
+    background-color: rgb(192, 189, 189);
+    position: fixed;
+    top:0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.kundvagnItem{
+    width: 100%;
+    margin: 40px 30px;
+    border-bottom: 1px solid rgb(129, 92, 92);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.productInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.productInfo > h3{
+    align-self: flex-start;
+}
+
+.productInfo > h4{
+    align-self: flex-end;
+}
+
+img{
+    height:60px;
+}
