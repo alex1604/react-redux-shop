@@ -6,10 +6,7 @@ import Historik from './Historik.js';
 import {connect} from 'react-redux';
 
 class TabContent extends Component{
-
-
   render(){
-    console.log(this.props.tab[0]);
     let pageContent;
     if(this.props.tab[0] === 'products'){
       pageContent =  <ProductsList />

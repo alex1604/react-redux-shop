@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {ADD_TABLE, ADD_TO_EMPTY_SHOPPING_LIST, ADD_TO_EXISTING_SHOPPING_LIST, NO_DATA, LOADING, LOADED, SELECT_TAB} from '../actions/constants.js';
+import {ADD_TABLE, ADD_TO_EMPTY_SHOPPING_LIST, ADD_TO_EXISTING_SHOPPING_LIST, NO_DATA, LOADING, LOADED, SELECT_TAB, REMOVE_TABLE} from '../actions/constants.js';
 // import update from 'immutability-helper';
 
 let counterReducer = (state={}, action) => {
@@ -23,6 +23,14 @@ let tableReducer = (state={past:[], present:[], future:[]}, action) => {
 				present: [...state.present, action.furniture],
 				future: []
 			};
+		case REMOVE_TABLE:
+		let removeItem = state.present[action.item];
+		console.log(removeItem);
+		return {
+				past: [...state.past, removeItem],
+				present: state.present.filter(x => x !== removeItem),
+				future: []
+		};
 		default:
 			return state;
 	}

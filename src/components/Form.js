@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {actionAddTable} from '../actions/actions.js'
 import {connect} from 'react-redux';
+// import ProductsList from './ProductsList.js';
+import ChangeProducts from './ChangeProducts.js';
 
 class Form extends Component{
   constructor(props) {
@@ -13,7 +15,7 @@ class Form extends Component{
   render(){
     return(
       <div className="form">
-        <h3>Administrera produkter: </h3>
+        <h2>Administrera produkter: </h2>
         <input  placeholder="Produktens namn"
                 type="text"
                 maxLength="20" required
@@ -29,7 +31,8 @@ class Form extends Component{
                 placeholder="Antal"
                 value={this.state.inputAntal}
                 onChange={e => this.setState({inputAntal: e.target.value, disabled:false})}/>
-        <button disabled={this.state.disabled} onClick={this.handleClickAddTable}>Lägg till produkt</button>
+        <button className="formBtn" disabled={this.state.disabled} onClick={this.handleClickAddTable}>Lägg till produkt</button>
+        <ChangeProducts/>
       </div>
     )
   }
