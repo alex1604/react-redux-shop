@@ -19,7 +19,7 @@ class Cart extends Component {
 	}
 	render() {
 		const visaKundvagn = this.state.visaKundvagn ? (
-			<Kundvagn/>
+			<Kundvagn close={this.visaKundvagn}/>
 		) : (
 			null
 		);

@@ -5,6 +5,11 @@
 
 .cart:hover{
     cursor:pointer;
+    color: rgb(216, 140, 90);
+}
+
+.cart:hover > span{
+    color: rgb(216, 140, 90);
 }
 
 .pan {

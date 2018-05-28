@@ -25,8 +25,8 @@ class Kundvagn extends Component {
         <div className="kundvagnItem" key={index}>
           <img src={require("../images/bord3.jpg")} alt="amazing table" />
           <div className='productInfo'>
-            <h3>{x.namn} ( {x.pris} SEK / st. )</h3>
-            <h4>{x.antal} st. = {x.pris*x.antal} SEK, </h4>
+            <h4>{x.namn} ( {x.pris} SEK / st. )</h4>
+            <h5>{x.antal} st. = {x.pris*x.antal} SEK </h5>
           </div>
         </div>
       )
@@ -34,9 +34,10 @@ class Kundvagn extends Component {
 
     return (
       <div id='kundvagn'>
+      <span className='fa fa-close fa-2x' onClick={this.props.close}></span>
         {list}
         <div id='totalPrice'>
-        {this.props.shoppingbasket.total}
+        <u>Summa</u>: {this.props.shoppingbasket.total} inkl. MOMS
         </div>
       </div>
     )
