@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import {actionRemoveTable} from '../actions/actions.js'
+import {actionRemoveTable, actionUndoTable} from '../actions/actions.js'
 
 class ChangeProducts extends Component {
 
@@ -10,8 +10,13 @@ class ChangeProducts extends Component {
     let action = actionRemoveTable(item);
     this.props.dispatch(action);
   };
+  handleUndo = (event) => {
+    let action = actionUndoTable();
+    this.props.dispatch(action);
+  };
 
   render(){
+    console.log(this.props.produkter);
     let adminList = this.props.produkter.map(
       (x, index) => (
         <div className="changeItem" key={index+x}>
@@ -26,7 +31,7 @@ class ChangeProducts extends Component {
       <div className="changeList">
         <h2>Ändra lista med produkter</h2>
         <ul>{adminList}</ul>
-        <button className="undoBtn">Ångra</button>
+        <button onClick={this.handleUndo} className="undoBtn">Ångra</button>
       </div>
     );
   }
