@@ -26,8 +26,6 @@ class Cart extends Component {
 		return (
 			<div>
 				<div className="cart" onClick={this.visaKundvagn}><i className="fa fa-shopping-cart fa-4x"></i><span className="pan">{this.props.value}</span></div>  <br/><br/>
-				<button onClick={this.handleClickIncrease}>Increase</button>
-				<button onClick={this.handleDecrease}>Decrease</button>
 				{visaKundvagn}
 			</div>
 		)

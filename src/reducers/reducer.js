@@ -1,9 +1,9 @@
-import {combineReducers} from 'redux';
-import {ADD_TABLE, REMOVE_ONE_TABLE, ADD_TO_EMPTY_SHOPPING_LIST, ADD_TO_EXISTING_SHOPPING_LIST, NO_DATA, LOADING, LOADED} from '../actions/constants.js';
-import update from 'immutability-helper';
+import { combineReducers } from 'redux';
+import { ADD_TABLE, REMOVE_ONE_TABLE, UNDO_TABLE, ADD_TO_EMPTY_SHOPPING_LIST, ADD_TO_EXISTING_SHOPPING_LIST, NO_DATA, LOADING, LOADED, SELECT_TAB, REMOVE_TABLE } from '../actions/constants.js';
+// import update from 'immutability-helper';
 
-let counterReducer = (state={}, action) => {
-	switch( action.type ) {
+let counterReducer = (state = {}, action) => {
+	switch (action.type) {
 		case 'INCREASE_BY_ONE':
 			return state + LOADING;
 
@@ -15,40 +15,57 @@ let counterReducer = (state={}, action) => {
 	}
 }
 
-let tableReducer = (state={past:[], present:[], future:[]}, action) => {
-	switch( action.type ) {
+let tableReducer = (state = { past: [], present: [], future: [] }, action) => {
+	switch (action.type) {
 		case ADD_TABLE:
-		return {
-				past: [...state.past,state.present],
+			return {
+				past: [...state.past, action.furniture],
 				present: [...state.present, action.furniture],
 				future: []
 			};
 
-			case REMOVE_ONE_TABLE:
+		case REMOVE_ONE_TABLE:
 			return {
-					past: [...state.past,state.present],
-					present: action.furniture,
-					future: []
-				};
+				past: [...state.past, state.present],
+				present: action.furniture,
+				future: []
+			};
+		case REMOVE_TABLE:
+			let removeItem = state.present[action.item];
+			console.log(removeItem);
+			return {
+				past: [...state.past, removeItem],
+				present: state.present.filter(x => x !== removeItem),
+				future: []
+			};
+		case UNDO_TABLE:
+			let last = state.past[state.past.length - 1];
+			console.log(last);
+			console.log(state.past);
+			return {
+				past: state.past.filter(x => x !== last),
+				present: [...state.present, last],
+				future: [state.present, ...state.future]
+			};
 		default:
 			return state;
 	}
 };
 
-let shoppingCart = (state={previous:[], lastAdded: []}, action) => {
-	switch( action.type ) {
+let shoppingCart = (state = { previous: [], lastAdded: [] }, action) => {
+	switch (action.type) {
 		case ADD_TO_EMPTY_SHOPPING_LIST:
 			return {
-				previous : [...state.previous, action.item.object],
+				previous: [...state.previous, action.item.object],
 				lastAdded: [action.item.object],
 				total: action.item.total
-				};
+			};
 
 		case ADD_TO_EXISTING_SHOPPING_LIST:
 			let newState = [...state.previous];
 			newState[action.item.index].antal = action.item.antal;
-			return { 
-				previous : newState,
+			return {
+				previous: newState,
 				lastAdded: [action.item.lastAdded],
 				total: action.item.total
 			};
@@ -57,17 +74,27 @@ let shoppingCart = (state={previous:[], lastAdded: []}, action) => {
 	}
 };
 
-let historyReducer = (state=[], action) =>{
-	return(
+let historyReducer = (state = [], action) => {
+	return (
 		[...state, action.type]
 	);
 }
-let rootReducer = combineReducers({
-produkter: tableReducer,
-value: counterReducer,
-history: historyReducer,
-kundvagn: shoppingCart
 
+let tabReducer = (state = [], action) => {
+	switch (action.type) {
+		case SELECT_TAB:
+			return [action.tab];
+		default:
+			return state;
+	}
+
+}
+let rootReducer = combineReducers({
+	produkter: tableReducer,
+	value: counterReducer,
+	history: historyReducer,
+	kundvagn: shoppingCart,
+	tab: tabReducer,
 });
 
 export default rootReducer;
