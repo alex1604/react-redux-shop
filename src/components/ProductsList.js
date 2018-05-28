@@ -1,20 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 // import produktObj from './products.json';
-import {connect} from 'react-redux';
-import {actionAddToEmptyShoppingList, actionAddToExistingShoppingList} from '../actions/actions.js'
+import { connect } from 'react-redux';
+import { actionAddToEmptyShoppingList, actionAddToExistingShoppingList, actionRemoveOneTable } from '../actions/actions.js'
 
 class ProductsList extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      
-      }
-      this.handleBuy = this.handleBuy.bind(this);
+    this.state = {
+
     }
-  render(){
+    this.handleBuy = this.handleBuy.bind(this);
+  }
+  render() {
     console.log(this.props.produkter);
     let list = this.props.produkter.map(
-			(x, index) => (
+      (x, index) => (
         <div className="productsItem" key={index}>
           <h3>{x.namn}</h3>
           <p>{x.pris} SEK, {x.antal} st.</p>
@@ -23,7 +23,7 @@ class ProductsList extends Component {
         </div>
       )
     );
-    return(
+    return (
       <ul className="productsList">
         {list}
       </ul>
@@ -32,45 +32,64 @@ class ProductsList extends Component {
   handleBuy = event => {
     // this.setState eller this.props.x()
     let x = event.target.name;
+    let howManyInStock = this.props.produkter[x].antal;
     let alreadyAdded = false;
     let index;
-      for (let el in this.props.kundvagn.previous){
-        if(this.props.kundvagn.previous[el].namn === this.props.produkter[x].namn){
-          alreadyAdded = true;
-          index = el;
-          console.log(index)
-        }
+    for (let el in this.props.kundvagn.previous) {
+      if (this.props.kundvagn.previous[el].namn === this.props.produkter[x].namn) {
+        alreadyAdded = true;
+        index = el;
+        console.log(index)
       }
-      if(!alreadyAdded){
-        alert('product doesn`t exist');
-        let action = actionAddToEmptyShoppingList({
+    }
+    if (!alreadyAdded && howManyInStock !== 0) {
+      let action = actionAddToEmptyShoppingList({
+        total: Number(this.props.shoppingbasket.total) + Number(this.props.produkter[x].pris),
+        object: {
           namn: this.props.produkter[x].namn,
           pris: this.props.produkter[x].pris,
           antal: 1,
-        },);
+        }
+      }, );
       console.log('action=', action);
       this.props.dispatch(action);
-      } else if (alreadyAdded){
-        alert('product exists');
 
-        let antal = this.props.kundvagn.previous[index].antal + 1;
-        let action = actionAddToExistingShoppingList({
-          index: index, antal: antal, lastAdded: {
-            namn: this.props.produkter[x].namn,
-            pris: this.props.produkter[x].pris,
-            antal: 1,
-          }
-        },);
+      let newStateProdukter = [...this.props.produkter];
+      newStateProdukter[x].antal = newStateProdukter[x].antal - 1;
+      let updateStock = actionRemoveOneTable(
+        newStateProdukter
+      );
+      this.props.dispatch(updateStock);
+
+    } else if (alreadyAdded && howManyInStock !== 0) {
+
+      let antal = this.props.kundvagn.previous[index].antal + 1;
+      let action = actionAddToExistingShoppingList({
+        index: index,
+        antal: antal,
+        total: Number(this.props.shoppingbasket.total) + Number(this.props.produkter[x].pris),        lastAdded: {
+          namn: this.props.produkter[x].namn,
+          pris: this.props.produkter[x].pris,
+          antal: 1,
+        }
+      }, );
       console.log('action=', action);
       this.props.dispatch(action);
-      }
-	}
+      let newStateProdukter = [...this.props.produkter];
+      newStateProdukter[x].antal = newStateProdukter[x].antal - 1;
+      let updateStock = actionRemoveOneTable(
+        newStateProdukter
+      );
+      this.props.dispatch(updateStock);
+    }
+  }
 }
 
 let mapStateToProps = state => {
-	return {
+  return {
     produkter: state.produkter.present,
-    kundvagn: state.kundvagn
-	}
+    kundvagn: state.kundvagn,
+    shoppingbasket: state.kundvagn
+  }
 };
 export default connect(mapStateToProps)(ProductsList);

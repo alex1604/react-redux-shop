@@ -10,14 +10,14 @@ class Kundvagn extends Component {
       
     }
   }
-  componentWillMount(){
+  /*componentWillMount(){
     let kundvagn = this.props.kundvagn;
     let price = 0;
     for (let x in kundvagn){
       price += kundvagn[x].antal*kundvagn[x].pris;
     }
     this.setState({price: price});
-  }
+  }*/
   render() {
     console.log(this.props.kundvagn);
     let list = this.props.kundvagn.map(
@@ -36,7 +36,7 @@ class Kundvagn extends Component {
       <div id='kundvagn'>
         {list}
         <div id='totalPrice'>
-        {this.state.price}
+        {this.props.shoppingbasket.total}
         </div>
       </div>
     )
@@ -45,7 +45,8 @@ class Kundvagn extends Component {
 
 let mapStateToProps = state => {
   return {
-    kundvagn: state.kundvagn.previous
+    kundvagn: state.kundvagn.previous,
+    shoppingbasket: state.kundvagn
   }
 };
 export default connect(mapStateToProps)(Kundvagn);

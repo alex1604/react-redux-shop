@@ -12,7 +12,8 @@ const initialState ={
 	value: 0,
 	kundvagn: {
     previous:[],
-    lastAdded:[]
+    lastAdded:[],
+    total: 0
   },
     produkter:{
       past:[],

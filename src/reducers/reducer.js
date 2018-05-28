@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {ADD_TABLE, ADD_TO_EMPTY_SHOPPING_LIST, ADD_TO_EXISTING_SHOPPING_LIST, NO_DATA, LOADING, LOADED} from '../actions/constants.js';
+import {ADD_TABLE, REMOVE_ONE_TABLE, ADD_TO_EMPTY_SHOPPING_LIST, ADD_TO_EXISTING_SHOPPING_LIST, NO_DATA, LOADING, LOADED} from '../actions/constants.js';
 import update from 'immutability-helper';
 
 let counterReducer = (state={}, action) => {
@@ -23,6 +23,13 @@ let tableReducer = (state={past:[], present:[], future:[]}, action) => {
 				present: [...state.present, action.furniture],
 				future: []
 			};
+
+			case REMOVE_ONE_TABLE:
+			return {
+					past: [...state.past,state.present],
+					present: action.furniture,
+					future: []
+				};
 		default:
 			return state;
 	}
@@ -32,18 +39,18 @@ let shoppingCart = (state={previous:[], lastAdded: []}, action) => {
 	switch( action.type ) {
 		case ADD_TO_EMPTY_SHOPPING_LIST:
 			return {
-				previous : [...state.previous, action.item],
-				lastAdded: [action.item]
+				previous : [...state.previous, action.item.object],
+				lastAdded: [action.item.object],
+				total: action.item.total
 				};
 
 		case ADD_TO_EXISTING_SHOPPING_LIST:
 			let newState = [...state.previous];
-
 			newState[action.item.index].antal = action.item.antal;
-			
 			return { 
 				previous : newState,
-				lastAdded: [action.item.lastAdded]
+				lastAdded: [action.item.lastAdded],
+				total: action.item.total
 			};
 		default:
 			return state;

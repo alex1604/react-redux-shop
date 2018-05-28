@@ -16,6 +16,7 @@
 }
 .kundvagnItem{
     width: 100%;
+    min-height: 15vh;
     margin: 40px 30px;
     border-bottom: 1px solid rgb(129, 92, 92);
     display: flex;
