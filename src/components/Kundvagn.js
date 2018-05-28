@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import produktObj from './products.json';
 import { connect } from 'react-redux';
 import './Kundvagn.css'
+import {actionDeleteFromBasket, actionDecreaseBy} from '../actions/actions.js'
 
 class Kundvagn extends Component {
   constructor(props) {
@@ -9,15 +10,18 @@ class Kundvagn extends Component {
     this.state = {
       
     }
+    this.handleDelete = this.handleDelete.bind(this);
   }
-  /*componentWillMount(){
-    let kundvagn = this.props.kundvagn;
-    let price = 0;
-    for (let x in kundvagn){
-      price += kundvagn[x].antal*kundvagn[x].pris;
-    }
-    this.setState({price: price});
-  }*/
+  handleDelete = e =>{
+    let index = e.target.id;
+    let deduct = (this.props.kundvagn[index].antal * this.props.kundvagn[index].pris);
+    let newState = [...this.props.kundvagn];
+    newState.splice(index, 1);
+
+    let action = actionDeleteFromBasket(newState, deduct);
+    this.props.dispatch(action);
+    this.props.dispatch(actionDecreaseBy(this.props.kundvagn[index].antal));
+  }
   render() {
     console.log(this.props.kundvagn);
     let list = this.props.kundvagn.map(
@@ -25,8 +29,8 @@ class Kundvagn extends Component {
         <div className="kundvagnItem" key={index}>
           <img src={require("../images/bord3.jpg")} alt="amazing table" />
           <div className='productInfo'>
-            <h4>{x.namn} ( {x.pris} SEK / st. )</h4>
-            <h5>{x.antal} st. = {x.pris*x.antal} SEK </h5>
+            <h4>{x.namn} ( <span className="smaller">{x.pris} SEK / st. </span>)</h4>
+            <h4>{x.antal} st. = {x.pris*x.antal} SEK <i className='fa fa-trash fa-2x' id={index} onClick={this.handleDelete}></i></h4>
           </div>
         </div>
       )

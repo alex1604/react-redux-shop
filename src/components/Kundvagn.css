@@ -64,3 +64,17 @@
     cursor: pointer;
     color: rgba(37, 37, 37, 0.652);
 }
+
+.fa-trash{
+    margin-left:20px;
+    color:rgb(37, 37, 37);
+}
+
+.fa-trash:hover{
+    cursor: pointer;
+    color: rgba(253, 2, 2, 0.726);
+}
+
+.smaller{
+    font-size: 14px;
+}

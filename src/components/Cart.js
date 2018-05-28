@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {actionIncreaseByOne, actionDecreaseByOne, actionUpdate} from '../actions/actions.js';
+import {actionIncreaseByOne, actionUpdate} from '../actions/actions.js';
 //import Actions from '../actions/actions.js';
 //Actions.actionUpdate
 import {connect} from 'react-redux';
@@ -34,11 +34,6 @@ class Cart extends Component {
 		// this.setState eller this.props.x()
 		let action = actionIncreaseByOne();
 		console.log('Increase clicked, dispatching action:', action);
-		this.props.dispatch(action);
-	}
-	handleDecrease = event => {
-		let action = actionDecreaseByOne();
-		console.log('Decrease clicked, dispatching action:', action);
 		this.props.dispatch(action);
 	}
 }
