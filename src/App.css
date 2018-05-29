@@ -14,6 +14,7 @@
   height: 150px;
   padding: 20px;
   color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .App-title {
@@ -42,6 +43,7 @@ header{
   display:inline-flex;
   justify-content: space-between;
   list-style: none;
+  height: 90px;
   margin:0;
   top:0;
   width: auto;
@@ -69,7 +71,7 @@ header{
 
 .productsItem{
   /* border: 0.5px solid black; */
-  background-color: #F7F7F7;
+  background-color: #f0f0f0;
   margin:10px;
   padding: 10px;
   transition: 0.3s;
@@ -87,14 +89,17 @@ header{
 .productsItem button{
   background-color: #000000;
   border: 1px solid #000000;
+  border-radius: 7px;
   color: #FFFFFF;
+  font-size: 20px;
+  letter-spacing: 2px;
   font-weight: 600;
   width: 100%;
   height: 50px;
 }
 .productsItem button:hover{
-  background-color: #61DAFB;
-  border:1px solid #61DAFB;
+  background-color: #FFFFFF;;
+  border: 2px solid #000000;
   color: #000000;
 }
 .form{
@@ -126,7 +131,7 @@ header{
   font-size: 25px;
   height: 50px;
   margin: 20px;
-  width: 30%;
+  width: 250px;
 }
 .formBtn:hover{
     color: #205527;
@@ -226,5 +231,6 @@ header{
     width: auto;
   }
 
-
+.formBtn{
+  }
 }
