@@ -25,7 +25,10 @@ class Cart extends Component {
 		);
 		return (
 			<React.Fragment>
-				<div className="cart" onClick={this.visaKundvagn}><i className="fa fa-shopping-cart fa-4x"></i><span className="pan">{this.props.value}</span></div>  <br/><br/>
+				<div className="cart" onClick={this.visaKundvagn}>
+				<i className="fa fa-shopping-cart fa-4x"></i>
+				<span className="pan">{this.props.value}</span>
+				</div>
 				{visaKundvagn}
 			</React.Fragment>
 		)

@@ -8,9 +8,12 @@ class Kundvagn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+
     }
     this.handleDelete = this.handleDelete.bind(this);
+  }
+  handleUndoBasket = event => {
+
   }
   handleDelete = e =>{
     let index = e.target.id;
@@ -43,6 +46,7 @@ class Kundvagn extends Component {
         <div id='totalPrice'>
         <u>Summa</u>: {this.props.shoppingbasket.total} inkl. MOMS
         </div>
+        <button onClick={this.handleUndoBasket}className="cartUndoBtn">Ångra</button>
       </div>
     )
   }
