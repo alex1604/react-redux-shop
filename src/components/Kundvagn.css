@@ -1,7 +1,8 @@
 #kundvagn{
     height:80vh;
     overflow-y:scroll;
-    width: 33%;
+    min-width: 33%;
+    width: auto;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
     background-color: rgb(155, 151, 151);
@@ -73,6 +74,7 @@
 .fa-trash:hover{
     cursor: pointer;
     color: rgba(253, 2, 2, 0.726);
+    color: #FFFFFF;
 }
 
 .smaller{

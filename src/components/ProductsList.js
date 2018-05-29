@@ -12,7 +12,7 @@ class ProductsList extends Component {
       this.handleBuy = this.handleBuy.bind(this);
     }
   render() {
-    console.log(this.props.produkter);
+    // console.log(this.props.produkter);
     let list = this.props.produkter.map(
       (x, index) => (
         <div className="productsItem" key={index}>
@@ -52,7 +52,7 @@ class ProductsList extends Component {
           antal: 1,
         }
       }, );
-      console.log('action=', action);
+      // console.log('action=', action);
       this.props.dispatch(action);
 
       let newStateProdukter = [...this.props.produkter];

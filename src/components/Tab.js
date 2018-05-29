@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import ProductsList from './ProductsList.js';
 import Form from './Form.js';
-import Kundvagn from './Kundvagn.js'
+// import Kundvagn from './Kundvagn.js'
 import Historik from './Historik.js';
 import {connect} from 'react-redux';
 
@@ -19,7 +19,7 @@ class TabContent extends Component{
     }
     else if(this.props.tab[0] === 'cart'){
       // pageContent = <Kundvagn/>
-      pageContent = "here you can see your cart"
+      pageContent = <ProductsList />
     }
     else{
       pageContent = <ProductsList />

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD_TABLE, DELETE_FROM_BASKET, REMOVE_ONE_TABLE, UNDO_TABLE, ADD_TO_EMPTY_SHOPPING_LIST, ADD_TO_EXISTING_SHOPPING_LIST, NO_DATA, LOADING, LOADED, SELECT_TAB, REMOVE_TABLE} from '../actions/constants.js';
+import { ADD_TABLE, DELETE_FROM_BASKET, REMOVE_ONE_TABLE, UNDO_TABLE, ADD_TO_EMPTY_SHOPPING_LIST, ADD_TO_EXISTING_SHOPPING_LIST, LOADING, SELECT_TAB, REMOVE_TABLE, CHANGE_TABLE} from '../actions/constants.js';
 // import update from 'immutability-helper';
 
 let counterReducer = (state = {}, action) => {
@@ -18,10 +18,22 @@ let counterReducer = (state = {}, action) => {
 let tableReducer = (state = { past: [], present: [], future: [] }, action) => {
 	switch (action.type) {
 		case ADD_TABLE:
+		// const nyPast = state.past.slice(0, state.past.length - 1);
+		// console.log("new past is",nyPast);
 			return {
-				past: [...state.past, action.furniture],
+				past: [...state.past, state.present],
 				present: [...state.present, action.furniture],
 				future: []
+			};
+		case CHANGE_TABLE:
+
+		let changedState = state.present.filter(x =>
+			x.namn !== action.oldItem.namn );
+
+			return {
+				past: [...state.past, state.present],
+				present: [...changedState, action.newItem],
+				future: [],
 			};
 
 		case REMOVE_ONE_TABLE: // removes product from shopping basket
@@ -33,20 +45,23 @@ let tableReducer = (state = { past: [], present: [], future: [] }, action) => {
 		case REMOVE_TABLE: // removes table from admin catalogue
 			let removeItem = state.present[action.item];
 			console.log(removeItem);
+			let presentState = state.present.filter(x => x !== removeItem);
+			console.log(presentState);
 			return {
-				past: [...state.past, removeItem],
-				present: state.present.filter(x => x !== removeItem),
+				past: [...state.past, state.present],
+				present: presentState,
 				future: []
 			};
 		case UNDO_TABLE:
 			let last = state.past[state.past.length - 1];
-			console.log(last);
-			console.log(state.past);
+			console.log(state.past.length);
 			return {
 				past: state.past.filter(x => x !== last),
-				present: [...state.present, last],
+				present:  last,
 				future: [state.present, ...state.future]
 			};
+		case DELETE_FROM_BASKET:
+			return state;
 		default:
 			return state;
 	}

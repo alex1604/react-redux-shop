@@ -33,6 +33,14 @@ const initialState ={
           namn : "Bord Work",
           pris: 6000,
           antal: 2},
+				{
+          namn : "Bord IDEA",
+          pris: 2500,
+          antal: 4},
+				{
+          namn : "Bord One",
+          pris: 1200,
+          antal: 4},
       ],
       future: [],
     },//produkter som finns

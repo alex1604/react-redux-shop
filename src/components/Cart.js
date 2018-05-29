@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {actionIncreaseByOne, actionUpdate} from '../actions/actions.js';
+import {actionIncreaseByOne} from '../actions/actions.js';
 //import Actions from '../actions/actions.js';
 //Actions.actionUpdate
 import {connect} from 'react-redux';
@@ -9,7 +9,7 @@ import Kundvagn from './Kundvagn.js'
 class Cart extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { 
+		this.state = {
 		  visaKundvagn: false
 		}
 		this.visaKundvagn = this.visaKundvagn.bind(this);
@@ -24,10 +24,10 @@ class Cart extends Component {
 			null
 		);
 		return (
-			<div>
+			<React.Fragment>
 				<div className="cart" onClick={this.visaKundvagn}><i className="fa fa-shopping-cart fa-4x"></i><span className="pan">{this.props.value}</span></div>  <br/><br/>
 				{visaKundvagn}
-			</div>
+			</React.Fragment>
 		)
 	}
 	handleClickIncrease = event => {
