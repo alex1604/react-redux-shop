@@ -5,13 +5,21 @@ handleClick = event => {
 	this.props.dispatch({ type: 'INCREASE_BY_ONE' });
 }
 */
-import {ADD_TABLE, REMOVE_ONE_TABLE, SELECT_TAB, REMOVE_TABLE, UNDO_TABLE	} from '../actions/constants.js';
+import {ADD_TABLE, DELETE_FROM_BASKET, REMOVE_ONE_TABLE, SELECT_TAB, REMOVE_TABLE, UNDO_TABLE	} from '../actions/constants.js';
 
 let actionAddTable = (o) => {
 	return {
 		type: ADD_TABLE,
 		furniture: o,
 	};
+}
+
+let actionDeleteFromBasket = (o, deduct) => {
+	return {
+		type: DELETE_FROM_BASKET,
+		item: o,
+		deduct: deduct
+	}
 }
 let actionRemoveOneTable = (o) => {
 	return {
@@ -36,9 +44,10 @@ let actionIncreaseByOne = () => {
 		type: 'INCREASE_BY_ONE'
 	}
 }
-let actionDecreaseByOne = () => {
+let actionDecreaseBy = (o) => {
 	return {
-		type: 'DECREASE_BY_ONE',
+		type: 'DECREASE_BY',
+		antal: o
 	}
 }
 
@@ -67,8 +76,8 @@ export {
 	actionAddToEmptyShoppingList,
 	actionAddToExistingShoppingList,
 	actionIncreaseByOne,
-	actionDecreaseByOne,
+	actionDecreaseBy,
 	actionAddTable,actionRemoveTable,actionUndoTable,
- 	actionSelectTab, actionRemoveOneTable};
+ 	actionSelectTab, actionRemoveOneTable, actionDeleteFromBasket};
 
 //

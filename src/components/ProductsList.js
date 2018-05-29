@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import produktObj from './products.json';
 import { connect } from 'react-redux';
-import { actionAddToEmptyShoppingList, actionAddToExistingShoppingList, actionRemoveOneTable } from '../actions/actions.js'
+import { actionAddToEmptyShoppingList, actionAddToExistingShoppingList, actionRemoveOneTable, actionIncreaseByOne } from '../actions/actions.js'
 
 class ProductsList extends Component {
   constructor(props) {
@@ -61,6 +61,7 @@ class ProductsList extends Component {
         newStateProdukter
       );
       this.props.dispatch(updateStock);
+      this.props.dispatch(actionIncreaseByOne());
 
     } else if (alreadyAdded && howManyInStock !== 0) {
 
@@ -82,6 +83,7 @@ class ProductsList extends Component {
         newStateProdukter
       );
       this.props.dispatch(updateStock);
+      this.props.dispatch(actionIncreaseByOne());
     }
   }
 }

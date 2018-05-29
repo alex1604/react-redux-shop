@@ -1,13 +1,12 @@
 #kundvagn{
-    height:90vh;
+    height:80vh;
     overflow-y:scroll;
     width: 33%;
-    border-left: 2px solid rgb(90, 89, 89);
-    border-bottom: 2px solid rgb(90, 89, 89);
-    border-bottom-left-radius: 15px;
-    background-color: rgb(192, 189, 189);
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: rgb(155, 151, 151);
     position: fixed;
-    top:0px;
+    bottom:0px;
     right: 0px;
     display: flex;
     flex-direction: column;
@@ -29,6 +28,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-left: 20px;
+    color: rgb(37, 37, 37);
+    font-family: 'Verdana', sans-serif;
 }
 
 .productInfo > h3{
@@ -39,6 +41,40 @@
     align-self: flex-end;
 }
 
-img{
-    height:60px;
+.kundvagnItem > img{
+    height:100px;
+    margin-left: 20px;
+}
+
+#totalPrice{
+    min-height: 15vh;
+    color: rgb(37, 37, 37);
+    font-family: 'Verdana', sans-serif;
+    align-self: flex-end;
+    padding-right: 30px;
+}
+
+.fa-close{
+    color: rgb(37, 37, 37);
+    align-self: flex-end;
+    margin: 15px 15px 0 0;
+}
+
+.fa-close:hover{
+    cursor: pointer;
+    color: rgba(37, 37, 37, 0.652);
+}
+
+.fa-trash{
+    margin-left:20px;
+    color:rgb(37, 37, 37);
+}
+
+.fa-trash:hover{
+    cursor: pointer;
+    color: rgba(253, 2, 2, 0.726);
+}
+
+.smaller{
+    font-size: 14px;
 }

@@ -21,7 +21,7 @@ class Header extends Component {
           <li><a onClick={()=>this.showTab('products')}>Produkter</a></li>
           <li><a onClick={()=>this.showTab('admin')}>Admin</a></li>
           <li><a onClick={()=>this.showTab('hist')}>Historik</a></li>
-          <li><a onClick={()=>this.showTab('cart')}><Cart/></a></li>
+          <li><Cart/></li>
         </nav>
       </header>
     );
