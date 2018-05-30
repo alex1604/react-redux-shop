@@ -13,6 +13,7 @@ const initialState ={
 	kundvagn: {
     previous:[],
     lastAdded:[],
+    lastDeleted: [],
     total: 0
   },
     produkter:{
