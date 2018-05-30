@@ -7,7 +7,7 @@ class ChangeProducts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      disabled:true,
     }
   }
 
@@ -33,7 +33,7 @@ class ChangeProducts extends Component {
           <li key={x}>{x.namn}, {x.pris} SEK, {x.antal} st.</li>
           <InputChangeProd name={index} produktNamn={x.namn} produktPris={x.pris}
           produktAntal={x.antal}/>
-          <button name={index} onClick={this.handleChange}>Ändra</button>
+          <button name={index} disabled={this.state.disabled}onClick={this.handleChange}>Ändra</button>
           <button name={index} onClick={this.handleRemove}>Ta bort</button>
         </div>
       )
