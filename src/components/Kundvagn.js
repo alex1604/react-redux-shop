@@ -52,20 +52,27 @@ class Kundvagn extends Component {
     let lastDeleted = newState[index];
 
     let antal = lastDeleted.antal;
+    let i;
     for (let el in this.props.produkter) {
       if (this.props.produkter[el].namn === lastDeleted.namn) {
-        index = el;
+        i = el;
       }
     }
     let newStateProdukter = [...this.props.produkter];
-    newStateProdukter[index].antal = newStateProdukter[index].antal + antal;
+    newStateProdukter[i].antal = newStateProdukter[i].antal + antal;
     let returnTables = actionReturnTablesToStock(newStateProdukter);
-    newState.splice(index, 1);
+  
 
     let action = actionDeleteFromBasket(newState, deduct, lastDeleted);
-    this.props.dispatch(action);
+    console.log(index);
+    console.log(this.props.kundvagn);
+    console.log(this.props.kundvagn[index]);
+    console.log(this.props.kundvagn[index].antal);
     this.props.dispatch(actionDecreaseBy(this.props.kundvagn[index].antal));
+    this.props.dispatch(action);
     this.props.dispatch(returnTables);
+
+    newState.splice(index, 1);
   }
   render() {
     console.log(this.props.kundvagn);
