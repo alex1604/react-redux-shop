@@ -5,13 +5,26 @@ handleClick = event => {
 	this.props.dispatch({ type: 'INCREASE_BY_ONE' });
 }
 */
-import {ADD_TABLE, CHANGE_TABLE,DELETE_FROM_BASKET, REMOVE_ONE_TABLE, SELECT_TAB, REMOVE_TABLE, UNDO_TABLE	} from '../actions/constants.js';
+import {ADD_TABLE, CHANGE_TABLE,DELETE_FROM_BASKET, REMOVE_ONE_TABLE, SELECT_TAB, REMOVE_TABLE, UNDO_TABLE, RETURN_TABLES_TO_STOCK, CLEAR_UNDO	} from '../actions/constants.js';
 
 let actionAddTable = (o) => {
 	return {
 		type: ADD_TABLE,
 		furniture: o,
 	};
+}
+
+let actionClearUndo = () =>{
+	return{
+		type: CLEAR_UNDO
+	}
+}
+
+let actionReturnTablesToStock = (o) =>{
+	return{
+		type: RETURN_TABLES_TO_STOCK,
+		item: o
+	}
 }
 let actionChangeTable = (index,oldItem, newItem) => {
 	return{
@@ -21,11 +34,12 @@ let actionChangeTable = (index,oldItem, newItem) => {
 		index: index,
 	};
 }
-let actionDeleteFromBasket = (o, deduct) => {
+let actionDeleteFromBasket = (o, deduct, lastDeleted) => {
 	return {
 		type: DELETE_FROM_BASKET,
 		item: o,
-		deduct: deduct
+		deduct: deduct,
+		lastDeleted: lastDeleted
 	}
 }
 let actionRemoveOneTable = (o) => {
@@ -86,6 +100,6 @@ export {
 	actionDecreaseBy,
 	actionAddTable,actionRemoveTable,actionUndoTable,
  	actionSelectTab, actionRemoveOneTable, actionDeleteFromBasket,
-	actionChangeTable};
+	actionChangeTable, actionReturnTablesToStock, actionClearUndo};
 
 //
