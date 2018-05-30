@@ -38,6 +38,7 @@ let tableReducer = (state = { past: [], present: [], future: [] }, action) => {
 			};
 
 		case REMOVE_ONE_TABLE: // removes product from shopping basket
+
 			return {
 				past: [...state.past, state.present],
 				present: action.furniture,
@@ -51,9 +52,8 @@ let tableReducer = (state = { past: [], present: [], future: [] }, action) => {
 			};
 		case REMOVE_TABLE: // removes table from admin catalogue
 			let removeItem = state.present[action.item];
-			console.log(removeItem);
 			let presentState = state.present.filter(x => x !== removeItem);
-			console.log(presentState);
+	
 			return {
 				past: [...state.past, state.present],
 				present: presentState,
@@ -67,8 +67,13 @@ let tableReducer = (state = { past: [], present: [], future: [] }, action) => {
 				present: last,
 				future: [state.present, ...state.future]
 			};
-		case DELETE_FROM_BASKET:
-			return state;
+		// case DELETE_FROM_BASKET:
+		// return {
+		// 	past: [...state.past],
+		// 	present: action.furniture,
+		// 	future: []
+		//
+		// }
 		default:
 			return state;
 	}
