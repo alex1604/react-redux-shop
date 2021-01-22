@@ -1,103 +1,101 @@
-#kundvagn{
-    height:80vh;
-    overflow-y:scroll;
-    min-width: 33%;
-    width: 50%;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    background-color: rgb(155, 151, 151);
-    position: fixed;
-    bottom:0px;
-    right: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 30px 20px;
-    box-sizing: border-box;
+#kundvagn {
+  height: 80vh;
+  overflow-y: scroll;
+  min-width: 33%;
+  width: 50%;
+  background-color: rgba(155, 151, 151, 0.98);
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 30px 20px;
+  box-sizing: border-box;
 }
-.kundvagnItem{
-    width: 100%;
-    min-height: 15vh;
-    margin: 40px 30px;
-    border-bottom: 1px solid rgb(129, 92, 92);
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+.kundvagnItem {
+  width: 100%;
+  min-height: 15vh;
+  margin: 40px 30px;
+  border-bottom: 1px solid rgb(129, 92, 92);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.productInfo{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 20px;
-    color: rgb(37, 37, 37);
-    font-family: 'Verdana', sans-serif;
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20px;
+  color: rgb(37, 37, 37);
+  font-family: "Verdana", sans-serif;
 }
 
-.productInfo > h3{
-    align-self: flex-start;
+.productInfo > h3 {
+  align-self: flex-start;
 }
 
-.productInfo > h4{
-    align-self: flex-end;
+.productInfo > h4 {
+  align-self: flex-end;
 }
 
-.kundvagnItem > img{
-    height:100px;
-    margin-left: 20px;
+.kundvagnItem > img {
+  height: 100px;
+  margin-left: 20px;
 }
 
-#totalPrice{
-    /* min-height: 15vh; */
-    color: rgb(37, 37, 37);
-    font-family: 'Verdana', sans-serif;
-    align-self: flex-end;
-    padding-right: 30px;
+#totalPrice {
+  /* min-height: 15vh; */
+  color: rgb(37, 37, 37);
+  font-family: "Verdana", sans-serif;
+  align-self: flex-end;
+  padding-right: 30px;
 }
 
-.fa-close{
-    color: rgb(37, 37, 37);
-    align-self: flex-end;
-    margin: 15px 15px 0 0;
+.fa-close {
+  color: rgb(37, 37, 37);
+  align-self: flex-end;
+  margin: 15px 15px 0 0;
 }
 
-.fa-close:hover{
-    cursor: pointer;
-    color: rgba(37, 37, 37, 0.652);
+.fa-close:hover {
+  cursor: pointer;
+  color: rgba(37, 37, 37, 0.652);
 }
 
-.fa-trash{
-    margin-left:20px;
-    color:rgb(37, 37, 37);
+.fa-trash {
+  margin-left: 20px;
+  color: rgb(37, 37, 37);
 }
 
-.fa-trash:hover{
-    cursor: pointer;
-    /* color: rgba(253, 2, 2, 0.726); */
-    color: #FFFFFF;
+.fa-trash:hover {
+  cursor: pointer;
+  /* color: rgba(253, 2, 2, 0.726); */
+  color: #ffffff;
 }
 
-.smaller{
-    font-size: 14px;
+.smaller {
+  font-size: 14px;
 }
 .cartUndoBtn {
-    min-height: 50px;
-  background-color:rgb(155, 151, 151);
+  min-height: 50px;
+  background-color: rgb(155, 151, 151);
   border: 3px solid #000000;
   border-radius: 10px;
-  color:  #000000;
+  color: #000000;
   cursor: pointer;
-  align-self:flex-start;
+  align-self: flex-start;
   text-align: center;
   font-weight: 500;
   font-size: 27px;
   margin: 10px 0 10px 10px;
-  padding: 5px;
-  width: 150px;
+  padding: 10px;
+  width: auto;
 }
-.cartUndoBtn:hover{
-  background-color:#000000;
-  color: #FFFFFF;
+.cartUndoBtn:hover {
+  background-color: #000000;
+  color: #ffffff;
 }

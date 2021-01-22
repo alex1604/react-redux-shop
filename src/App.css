@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url("https://fonts.googleapis.com/css?family=Anton");
 
 .App {
   text-align: center;
@@ -22,48 +22,49 @@
   cursor: default;
 }
 
-header{
+header {
   align-items: center;
   flex-direction: row;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   display: flex;
   justify-content: space-between;
   height: auto;
   padding: 50px;
 }
-#logo{
+#logo {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   height: 100px;
 }
-.navbar{
+.navbar {
   align-items: flex-end;
-  display:inline-flex;
+  display: inline-flex;
   justify-content: space-between;
   list-style: none;
   height: 90px;
-  margin:0;
-  top:0;
+  margin: 0;
+  top: 0;
   width: auto;
 }
-.navbar>li{
-
+.navbar > li {
   height: 50px;
-  /* align-items: flex-end; */
 }
-.navbar>li>a{
+.navbar > li > a {
   align-self: flex-end;
   cursor: pointer;
   font-size: 20px;
-  margin:10px;
+  margin: 10px;
   text-decoration: none;
 }
-.navbar>li>a:hover{
-  color:#61DAFB;
+.navbar > li > a:hover {
+  color: #71c4db;
 }
-.productsList{
+.navbar > li > a.active {
+  color: #7ec57c;
+}
+.productsList {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -71,66 +72,77 @@ header{
   text-align: center;
   list-style: none;
   padding: 0;
-
 }
 
-.productsItem{
+.productsItem {
   /* border: 0.5px solid black; */
   background-color: #f0f0f0;
-  margin:10px;
+  margin: 10px;
   padding: 10px;
   transition: 0.3s;
   width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
-.productsItem:hover{
-  box-shadow: 0px 0px 80px -11px rgba(0,0,0,0.75);
+.productsItem:hover {
+  box-shadow: 0px 0px 80px -11px rgba(0, 0, 0, 0.75);
   transition: 0.3s;
 }
 
-.productsItem img{
+.productsItem img {
   width: 100%;
   height: auto;
 }
-.productsItem button{
+.productsItem button {
   background-color: #000000;
   border: 1px solid #000000;
   border-radius: 7px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 20px;
   letter-spacing: 2px;
   font-weight: 600;
   width: 100%;
   height: 50px;
+  margin-top: 15px;
 }
-.productsItem button:hover{
-  background-color: #FFFFFF;;
+.productsItem button:hover {
+  background-color: #ffffff;
   border: 2px solid #000000;
   color: #000000;
+  cursor: pointer;
 }
-.form{
+.productsItem .image-button-item-group {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.form {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
+  justify-content: space-between;
   margin: 20px;
   padding: 5px;
   height: auto;
 }
-.form input{
-  background-color: #FFFFFF;
+.form input {
+  background-color: #ffffff;
   border: 1px solid black;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   height: 30px;
   width: 400px;
   margin: 10px;
   justify-content: space-between;
 }
-.formBtn{
+.formBtn {
   background-color: #2dbe60;
   border: 1px solid #2dbe60;
   border-radius: 10px;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   font-weight: 600;
   font-size: 25px;
@@ -138,14 +150,14 @@ header{
   margin: 20px;
   width: 250px;
 }
-.formBtn:hover{
-    color: #205527;
+.formBtn:hover {
+  color: #205527;
 }
-.historyList{
+.historyList {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
+  justify-content: space-between;
   width: 50%;
   margin: 20px;
   padding: 5px;
@@ -159,11 +171,11 @@ header{
   font-weight: bold;
   margin: 5px;
 }
-.changeItem>button {
+.changeItem > button {
   background-color: #f15d22;
   border: 1px solid #f15d22;
   border-radius: 10px;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   font-size: 18px;
   height: auto;
@@ -171,23 +183,23 @@ header{
   padding: 5px;
   width: 100px;
 }
-.changeItem>button:hover{
+.changeItem > button:hover {
   color: #000000;
 }
-.form ul{
+.form ul {
   padding: 0;
 }
-.changeList{
+.changeList {
   display: flex;
   flex-direction: column;
 }
-.changeList .undoBtn{
-  background-color: #FFFFFF;
+.changeList .undoBtn {
+  background-color: #ffffff;
   border: 3px solid #c8102e;
   border-radius: 10px;
-  color:  #c8102e;
+  color: #c8102e;
   cursor: pointer;
-  align-self:flex-end;
+  align-self: flex-end;
   text-align: center;
   font-weight: 500;
   font-size: 27px;
@@ -195,16 +207,16 @@ header{
   padding: 5px;
   width: 150px;
 }
-.undoBtn:hover{
+.undoBtn:hover {
   background-color: #c8102e;
   border: 3px solid #c8102e;
-  color: #FFFFFF;
+  color: #ffffff;
 }
-.saveBtn{
+.saveBtn {
   background-color: #f15d22;
   border: 1px solid #f15d22;
   border-radius: 10px;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   font-size: 18px;
   height: auto;
@@ -212,45 +224,49 @@ header{
   padding: 5px;
   width: 100px;
 }
-.saveBtn:hover{
-    color: #000000;
+.saveBtn:hover {
+  color: #000000;
 }
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (max-width: 600px) {
-  body,html {
+  body,
+  html {
     background-color: #9dbc7a;
     box-sizing: border-box;
-
   }
-  .App-title{
+  .App-title {
     font-size: 18px;
   }
-  .productsList{
+  .productsList {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     list-style: none;
     padding: 0;
-    margin:0;
+    margin: 0;
     width: auto;
   }
-  .productsItem{
+  .productsItem {
     border: 0.5px solid black;
     width: auto;
-    padding:0;
+    padding: 0;
     margin: 0;
   }
-  .form{
-    margin:0;
-    margin-top:30px;
+  .form {
+    margin: 0;
+    margin-top: 30px;
     width: auto;
   }
 
-.formBtn{
+  .formBtn {
   }
 }
